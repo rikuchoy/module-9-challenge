@@ -41,7 +41,7 @@ function generateMarkdown(data) {
   - [Usage](#usage)  
   - [Contributing](#contributing)
   - [Tests](#tests)
-  - [Contact](#contact)
+  - [Questions](#questions)
 
   ## [Project Description](#table-of-contents)
 
@@ -58,6 +58,24 @@ function generateMarkdown(data) {
   ## [Usage](#table-of-contents)  
 
   ${data.usage}
+  
+  ${renderLicenseSection(data.license)}
+
+  ## [Contributing](#table-of-contents)
+
+  ${renderContributingSection(data.confirmContributers, data.contribute)}
+
+  ## [Tests](#table-of-contents)
+
+  ${data.test}
+
+  ## [Questions](#table-of-contents)
+
+  Contact information for any questions:
+
+  [GitHub](https://github.com/${data.githubUsername})
+
+  [Email: ${data.email}](mailto:${data.email})
 
 
 `;
