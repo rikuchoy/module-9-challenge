@@ -69,11 +69,57 @@ const questions = [
             }
         }
     },
+    {
+        type: 'input',
+        name: 'how',
+        message: 'HOW will someone use your project? (Required)',
+        validate: whyIn => {
+            if (whyIn) {
+                return true;
+            } else {
+                console.log('Enter how someone should use your project to continue!');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'contributing',
+        message: 'Provide guidelines for contributing. (Required)',
+        when: ({confirmContibuters}) => {
+            if (confirmContibuters) {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        validate: contributerIn => {
+            if (contributerIn) {
+                return true;
+            } else {
+                console.log('Enter contributer guidelines to continue!');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'tests',
+        message: 'Provide instructions for app testing? (Required)',
+        validate: testIn => {
+            if (testIn) {
+                return true;
+            } else {
+                console.log('Enter testing instructions to continue!');
+                return false;
+            }
+        }
+    },
 ];
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    
+    fs.writeFile()
 }
 
 // TODO: Create a function to initialize app

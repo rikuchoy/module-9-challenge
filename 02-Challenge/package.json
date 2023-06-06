@@ -11,5 +11,8 @@
     "url": "^C"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^9.2.7"
+  }
 }
