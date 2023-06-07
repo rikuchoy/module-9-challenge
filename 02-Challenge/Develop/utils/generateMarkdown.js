@@ -77,13 +77,13 @@ ${renderContributors(data.confirmContributers, data.contribute)}
 
 ## Tests
 
-${data.test}
+${data.tests}
 
 ## Questions
 
 Contact information for any questions:
 
-[GitHub](https://github.com/${data.githubUsername})
+[GitHub](https://github.com/${data.githubUser})
 
 [Email: ${data.email}](mailto:${data.email})
 `;

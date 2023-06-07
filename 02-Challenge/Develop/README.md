@@ -1,6 +1,6 @@
-# a
+# ABC
 
-![badge](https://img.shields.io/badge/license-agpl-blue)
+ 
 
 ## Table of Contents
 
@@ -13,23 +13,21 @@
 
 ## Project Description
 
-a
+My project is ~~~ and it solves ~~~
 
-a
+I created this project because ~~~
 
-a
+Someone can use this project by ~~~
 
 ## Installation
 
-a
+1. 2. 3. 
 
 ## Usage
 
-a
+You use this application by ~~~
 
-## [Liscense](#table-of-contents)
-
- The application is covered under the following license: [agpl](https://choosealicense.com/licenses/agpl)
+ 
 
 ## Contributing
 
@@ -37,7 +35,7 @@ Thank you for your interest in my project; however, I will not be accepting cont
 
 ## Tests
 
-undefined
+You can test this application by ~~~
 
 ## Questions
 
@@ -45,4 +43,4 @@ Contact information for any questions:
 
 [GitHub](https://github.com/undefined)
 
-[Email: a](mailto:a)
+[Email: rikuchoy@gmail.com](mailto:rikuchoy@gmail.com)
