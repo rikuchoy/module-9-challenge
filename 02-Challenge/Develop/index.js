@@ -84,8 +84,46 @@ const questions = [
     },
     {
         type: 'input',
+        name: 'installation',
+        message: 'Please provide step-by-step installation instructions for your project. (Required)',
+        validate: installIn => {
+            if (installIn) {
+                return true;
+            } else {
+                console.log('Please enter your installation instructions!');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'input',
+        name: 'usage',
+        message: 'Please provide instructions and examples for use. (Required)',
+        validate: usageIn => {
+            if (usageIn) {
+                return true;
+            } else {
+                console.log('Please enter your use instructions!');
+                return false;
+            }
+        }
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'Which license will you use for your project?',
+        choices: ['agpl', 'apache', 'mit', 'no license']
+    },
+    {
+        type: 'confirm',
+        name: 'confirmContributers',
+        message: 'Would you like to allow other developers to contribute?',
+        default: true
+    },
+    {
+        type: 'input',
         name: 'contributing',
-        message: 'Provide guidelines for contributing. (Required)',
+        message: 'Provide contribution guidelines. (Required)',
         when: ({confirmContibuters}) => {
             if (confirmContibuters) {
                 return true;
@@ -119,11 +157,27 @@ const questions = [
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile()
-}
+    fs.writeFile(fileName, data, (err) => {
+      if (err) {
+        console.error('Error writing file:', err);
+      } else {
+        console.log(`Successfully generated ${fileName}`);
+      }
+    });
+  }
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    inquirer
+      .prompt(questions)
+      .then((data) => {
+        const markdown = generateMarkdown(data);
+        writeToFile('README.md', markdown);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
 
 // Function call to initialize app
 init();

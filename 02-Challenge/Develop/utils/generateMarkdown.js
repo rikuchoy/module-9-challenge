@@ -1,82 +1,93 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  if (license !== 'no license') {
-    return `![badge](https://img.shields.io/badge/license-${license}-blue)`;
-  } else {
-    return ' ';
-  }
+if (license !== 'no license') {
+return `![badge](https://img.shields.io/badge/license-${license}-blue)`;
+} else {
+return ' ';
 }
-  
+}
+
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-  if (license !== 'no license') {
-    return `[${license}](https://choosealicense.com/licenses/${license})`;
-  } else {
-    return ' ';
-  }
+if (license !== 'no license') {
+return `[${license}](https://choosealicense.com/licenses/${license})`;
+} else {
+return ' ';
+}
 }
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
-  if (license !== 'no license') {
-    return `## [Liscense](#table-of-contents) The application is covered under the following license: ${renderLicenseLink(license)}`;
-  } else {
-    return ' ';
-  }
+if (license !== 'no license') {
+return `## [Liscense](#table-of-contents)
+
+ The application is covered under the following license: ${renderLicenseLink(license)}`;
+} else {
+return ' ';
+}
+}
+//Function for contibutors
+function renderContributors(acceptContributors, data) {
+if (!acceptContributors) {
+return `Thank you for your interest in my project; however, I will not be accepting contibutors for my project.`;
+} else {
+return `${data}`;
+}
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
 
-  ${renderLicenseBadge(data.license)}
+${renderLicenseBadge(data.license)}
 
-  ## Table-of-Contents  
+## Table of Contents
 
-  - [Project Description](#description)  
-  - [Installation](#installation)  
-  - [Usage](#usage)  
-  - [Contributing](#contributing)
-  - [Tests](#tests)
-  - [Questions](#questions)
+- [Project Description](#project-description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
 
-  ## [Project Description](#table-of-contents)
+## Project Description
 
-  ${data.what}  
+${data.what}
 
-  ${data.why}  
+${data.why}
 
-  ${data.how}  
+${data.how}
 
-  ## [Installation](#table-of-contents)  
+## Installation
 
-  ${data.installation}  
+${data.installation}
 
-  ## [Usage](#table-of-contents)  
+## Usage
 
-  ${data.usage}
-  
-  ${renderLicenseSection(data.license)}
+${data.usage}
 
-  ## [Contributing](#table-of-contents)
+${renderLicenseSection(data.license)}
 
-  ${renderContributingSection(data.confirmContributers, data.contribute)}
+## Contributing
 
-  ## [Tests](#table-of-contents)
+${renderContributors(data.confirmContributers, data.contribute)}
 
-  ${data.test}
+## Tests
 
-  ## [Questions](#table-of-contents)
+${data.test}
 
-  Contact information for any questions:
+## Questions
 
-  [GitHub](https://github.com/${data.githubUsername})
+Contact information for any questions:
 
-  [Email: ${data.email}](mailto:${data.email})
+[GitHub](https://github.com/${data.githubUsername})
+
+[Email: ${data.email}](mailto:${data.email})
 `;
 }
+
 
 module.exports = generateMarkdown;
